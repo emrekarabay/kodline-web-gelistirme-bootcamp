@@ -17,3 +17,4 @@
 ## Alıştırma Yapılan Platformlar
 
 - [projecteuler.net](https://projecteuler.net/archives)
+- [w3resource](https://www.w3resource.com/)
