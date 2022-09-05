@@ -56,3 +56,9 @@ $seconds = (int)($diffSeconds);
 echo $year . " yıl " . $mounth . " ay " . (int)$diffDay . " gün " . $hours . " saat " . $minute . " dakika " . $seconds . " saniyedir yaşıyor ";
 */
 
+$ingilizce = array("monday","tuesday","wednesday","thursday","friday","saturday","sunday");
+$turkce = array("pazartesi","salı","çarşamba","perşembe","cuma","cumartesi","pazar");
+
+for ($i = 1999; $i < 2023; $i++){
+    echo str_replace($ingilizce,$turkce,date("d m y l",strtotime("19 october ". $i)))."<br>";
+}
