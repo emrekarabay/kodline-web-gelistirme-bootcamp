@@ -1,3 +1,3 @@
 # Multiplication Table
 
-![multiplicationTableSs](/assets/images/multiplicationTableSs.png)
+![multiplicationTableSs](./img/multiplicationTableSs.PNG)
