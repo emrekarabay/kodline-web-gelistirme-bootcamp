@@ -13,8 +13,8 @@ $sorguUsers = $conn->prepare(" UPDATE users SET photoAdress = ? WHERE id=?");
 $sorguUsers ->execute([$yuklenecek_dosya,$gelenID]);
 
 
-/*
+
 if($sorguUsers){
     header('Location: ./table.php');
-}*/
+}
 ?>

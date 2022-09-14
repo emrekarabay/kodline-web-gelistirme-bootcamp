@@ -3,10 +3,11 @@
 require 'dbConnectPhp.php';
 
 $gelenID = $_GET["deleteID"];
+$photoAdressNew = "";
 
-$sorguUsers = $conn->prepare(" DELETE FROM users WHERE id=?");
+$sorguUsers = $conn->prepare(" UPDATE users SET photoAdress = ? WHERE id=?");
 
-$sorguUsers->execute([$gelenID]);
+$sorguUsers->execute([$photoAdressNew,$gelenID]);
 
 if ($sorguUsers) {
     header('Location: ./table.php');
