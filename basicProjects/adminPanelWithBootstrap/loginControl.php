@@ -10,15 +10,16 @@ $usersListele = $sorguUsers -> fetchall();
 if(isset($_POST['username'],$_POST['password'])) {
     foreach ($usersListele as $user) {
         if ($_POST['password'] == $user['password'] && $_POST["username"] == $user["username"]) {
-            echo $_POST['username'] . " hoşgeldin" . "<br>";
+            header('Location: ./adminPanel.php');
             break;
         } else {
             $count++;
         }
     }
 }
-
-if ($count > 0){
+$countRow = $sorguUsers -> rowCount();
+if ($count == $countRow){
     echo "Please enter the correct username and password";
 
 }
+
