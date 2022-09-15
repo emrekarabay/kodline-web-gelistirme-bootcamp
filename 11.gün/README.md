@@ -2,7 +2,7 @@
 
 ## Öğrenilen kavramlar
 
-- Dosya ekleme
+- Belge,foto ekleme
 
 ![ss1](img/1.PNG)
 ![ss2](img/2.PNG)
