@@ -1,7 +1,7 @@
 <?php
 require "dbConnectPhp.php";
 
-$link = baglan("https://www.letgo.com/", 0);
+$link = baglan("https://www.letgo.com/");
 preg_match_all('@data-aut-id="itemTitle">(.*?)</span>@', $link, $urlArray);
 preg_match_all('@><img src="https://apollo(.*?)" alt@', $link, $imgArray);
 
