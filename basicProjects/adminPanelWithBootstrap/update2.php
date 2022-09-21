@@ -12,6 +12,6 @@ $sorguUsers = $conn->prepare(" UPDATE users SET photoAdress = ? WHERE id=?");
 $sorguUsers ->execute([$yuklenecek_dosya,$gelenID]);
 
 if($sorguUsers){
-    header('Location: ./adminPanel.php');
+    header('Location: ./adminPanel.php?idd='.$gelenID);
 }
 ?>

@@ -10,11 +10,13 @@
 <table class="table table-sm">
     <thead>
     <tr>
+        
         <th scope="col">ID</th>
         <th scope="col">Username</th>
         <th scope="col">Password</th>
         <th scope="col">Edit</th>
         <th scope="col">Photo</th>
+        <th scope="col">Last Login Date</th>
     </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -26,6 +28,7 @@ $sorguUsers = $conn->query(" select * from users ");
 
 $usersListele = $sorguUsers -> fetchall();
 
+    $gelenID = $_GET["idd"];
     foreach ($usersListele as $user) {
 
     ?>
@@ -35,14 +38,26 @@ $usersListele = $sorguUsers -> fetchall();
         <td><?php echo $user['username']; ?></td>
         <td><?php echo $user["password"]; ?></td>
         <td>
-            <button type="button" class="btn btn-primary"><a style="color: white;" href="update.php?updateID=<?php echo $user["id"]?>">Update</a></button>
-            <button type="button" class="btn btn-danger"><a style="color: white;" href="delete.php?deleteID=<?php echo $user["id"]?>">Delete</a></button>
-        </td>
-        <td><img width="50px" height="50px" src='<?php echo $user["photoAdress"]; ?>'></td>
+            <?php
+            $sorguUsers3 = $conn->prepare(" select * from users WHERE id=?");
 
+            $sorguUsers3 -> execute([$gelenID]);
+            $usersListele3 = $sorguUsers3 -> fetch();
+            if($user["id"] != $usersListele3["id"]) {
+               goto yeniYer;
+            }
+             ?>
+            <button type="button" class="btn btn-primary"><a style="color: white;" href="update.php?updateID=<?php echo $user["id"]?>">Update</a></button>
+            <button type="button" class="btn btn-warning"><a style="color: white;" href="delete.php?deleteID=<?php echo $user["id"]?>">Delete</a></button>
+            <button type="button" class="btn btn-danger"><a style="color: white;" href="logOut.php?logOutID=<?php echo $usersListele3["id"]?>">LOG OUT</a></button>
+        </td>
+        <?php yeniYer: ?>
+        <td><img width="50px" height="50px" src='<?php echo $user["photoAdress"]; ?>'></td>
+        <td><?php echo $user["lastLoginDate"]; ?></td>
+
+
+       <?php } ?>
     </tr>
-    <?php
-            } ?>
 
     </tbody>
 </table>

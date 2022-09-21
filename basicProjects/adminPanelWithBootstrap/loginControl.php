@@ -10,7 +10,14 @@ $usersListele = $sorguUsers -> fetchall();
 if(isset($_POST['username'],$_POST['password'])) {
     foreach ($usersListele as $user) {
         if ($_POST['password'] == $user['password'] && $_POST["username"] == $user["username"]) {
-            header('Location: ./adminPanel.php');
+
+            $sorguUsers2 = $conn->prepare(" select * from users WHERE username= ? ");
+
+            $sorguUsers2 -> execute([$_POST['username']]);
+            $usersListe = $sorguUsers2 -> fetch();
+            $loginID = $usersListe["id"];
+
+            header('Location: ./adminPanel.php?idd='.$loginID);
             break;
         } else {
             $count++;

@@ -10,6 +10,6 @@ $sorguUsers = $conn->prepare(" UPDATE users SET username=? , password=? WHERE id
 $sorguUsers ->execute([$gelenUsername,$gelenPassword,$gelenID]);
 
 if($sorguUsers){
-    header('Location: ./adminPanel.php');
+    header('Location: ./adminPanel.php?idd='.$gelenID);
 }
 ?>
