@@ -2,7 +2,7 @@
 
 
 session_start();
-if(isset($_SESSION["loginUsername"])){
+if(isset($_SESSION["loginUsernameAdmin"])){
     require'dbConnectPhp.php';
 }else{
     goto end;

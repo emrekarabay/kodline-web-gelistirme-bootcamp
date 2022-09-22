@@ -21,13 +21,13 @@
     $_COOKIE["dil"] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2) .".php";
     require substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2).".php";
 }else {
-    if ($_COOKIE["dil"] == "tr"){
+    if ($_COOKIE["dil"] == "tr.php"){
         require $_COOKIE["dil"];
-        header("http://localhost/adminPanel.php");
+        //header("http://localhost/adminPanel.php");
     }
-    elseif($_COOKIE["dil"] == "en"){
+    elseif($_COOKIE["dil"] == "en.php"){
         require $_COOKIE["dil"];
-        header("http://localhost/adminPanel.php");
+        //header("http://localhost/adminPanel.php");
     }
 } ?>
 <!-- Sayfa Dili Belirleme Bitiş -->
