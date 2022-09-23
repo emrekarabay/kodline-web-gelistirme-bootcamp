@@ -45,13 +45,13 @@ $sorguUsers->execute([$_SESSION["loginUsername"]]);
 $usersListele = $sorguUsers -> fetch();
 $count = 0;
 
-for($i=0; $i < count($priceArray[1]);$i++){
-    $sorgu=$conn->prepare("UPDATE caldiklarim SET baslik=?,url=?,price=?,discountPrice=?");
 
+for($i=0; $i < count($priceArray[1]);$i++){
+    $sorgu=$conn->prepare("UPDATE caldiklarim SET baslik=?,url=?,price=?,discountPrice=? WHERE id=?");
     $price = (int)filter_var($priceArray[1][$i], FILTER_SANITIZE_NUMBER_INT);
     $x = "https://apollo" . $imgArray[1][$i];
     $discountPrice = $price - (($price * $usersListele["discountRate"])/100);
-    $sorgu->execute([$urlArray[1][$i],$x,$price,$discountPrice]);
+    $sorgu->execute([$urlArray[1][$i],$x,$price,$discountPrice,$i+1021]);
     $count++;
 }
 
