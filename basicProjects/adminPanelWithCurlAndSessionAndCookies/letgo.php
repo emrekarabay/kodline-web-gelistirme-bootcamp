@@ -10,29 +10,38 @@
 <!-- Yetkisiz Girişi Önleme Başlangıç -->
 <?php session_start();
 if(isset($_SESSION["loginUsername"])){
-    require'dbConnectPhp.php';
-    setcookie("dil","tr.php",time()+(86400*30));
+    require 'dbConnectPhp.php';
 }else{
     goto end;
 } ?>
 <!-- Yetkisiz Girişi Önleme Bitiş -->
 <!-- Sayfa Dili Belirleme Başlangıç -->
-<?php if(!isset($_COOKIE["dil"])){
+<?php
+if(!isset($_GET["dil"],$_COOKIE["dil"])){
     $_COOKIE["dil"] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2) .".php";
     require substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2).".php";
 }else {
-    if ($_COOKIE["dil"] == "tr.php"){
+    if ($_GET["dil"] == "tr"){
+        $_COOKIE["dil"] = "tr.php";
         require $_COOKIE["dil"];
-        header("http://localhost/letgo.php");
+        header("http://localhost/yeni.php?dil=tr");
+
     }
-    elseif($_COOKIE["dil"] == "en.php"){
+    elseif($_GET["dil"] == "en"){
+        $_COOKIE["dil"] = "en.php";
         require $_COOKIE["dil"];
-        header("http://localhost/letgo.php");
+        header("http://localhost/yeni.php?dil=en");
+
     }
-} ?>
+    else{
+        require $_SESSION["dil"];
+        header("http://localhost/yeni.php?dil=" . $_GET["dil"]);
+    }
+}
+ ?>
 <!-- Sayfa Dili Belirleme Bitiş -->
 <!-- Navbar Başlangıç -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href=""><img src="https://statics.olx.com.tr/external/base/img/letgo/logo.svg"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +64,13 @@ if(isset($_SESSION["loginUsername"])){
                 <li class="nav-item">
                     <a class="nav-link" href="#"><?php echo $dil["letgoHomeContent"] ?></a>
                 </li>
-
             </ul>
+                <span class="navbar-text">
+                    <a href="?dil=tr"><img src="https://cdn-icons-png.flaticon.com/512/197/197518.png" width="50px" height="50px"></a>
+                    <a href="?dil=en"><img src="https://cdn-icons-png.flaticon.com/512/4060/4060233.png" width="50px" height="50px"><a>
+
+                </span>
+
         </div>
     </div>
 </nav>
@@ -65,7 +79,6 @@ if(isset($_SESSION["loginUsername"])){
 <div class="row">
     <?php
         require'dbConnectPhp.php';
-
     $sorguUsers = $conn->query(" select * from caldiklarim ");
 
     $usersListele = $sorguUsers -> fetchall();
@@ -79,7 +92,7 @@ if(isset($_SESSION["loginUsername"])){
                 <div class="card-body">
                     <h5 class="card-title"><?php echo $user['baslik']; ?></h5>
                     <p class="card-text"><?php echo $user['price'] . " TL yerine " . $user['discountPrice'] . " TL "; ?></p>
-                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                    <a href="#" class="btn btn-primary"><?php echo $dil['addToCart']; ?></a>
                 </div>
             </div>
         </div>

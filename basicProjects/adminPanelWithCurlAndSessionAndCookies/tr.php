@@ -11,5 +11,7 @@ $dil["letgoCar"] = "Araba";
 $dil["letgoPhone"] = "Telefon";
 $dil["letgoElectronic"] = "Elektronik";
 $dil["letgoHomeContent"] = "Ev Eşyaları";
+$dil["addToCart"] = "Sepete Ekle";
+
 
 ?>

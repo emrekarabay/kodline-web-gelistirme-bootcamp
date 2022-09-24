@@ -11,4 +11,5 @@ $dil["letgoCar"] = "Car";
 $dil["letgoPhone"] = "Phone";
 $dil["letgoElectronic"] = "Electronic";
 $dil["letgoHomeContent"] = "Home Content";
+$dil["addToCart"] = "Add to Cart";
 ?>
