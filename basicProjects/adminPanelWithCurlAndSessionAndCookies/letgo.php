@@ -12,9 +12,9 @@
 if(isset($_SESSION["loginUsername"])){
     require 'dbConnectPhp.php';
     if(!isset($_COOKIE["dil"])){
-       setcookie("dil",substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2) .'.php',time()+(86400*30));
+        setcookie("dil",substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2) .'.php',time()+(86400*30));
         sleep(1);
-        echo "emre";
+        header("Refresh:0; url=http://localhost/letgo.php");
     }
     require $_COOKIE["dil"];
 }else{
@@ -26,13 +26,13 @@ if(isset($_SESSION["loginUsername"])){
     if ($_GET["dil"] == "tr"){
         $_COOKIE["dil"] = "tr.php";
         require $_COOKIE["dil"];
-        header("http://localhost/letgo.php");
+        //header("http://localhost/letgo.php");
 
     }
     elseif($_GET["dil"] == "en"){
         $_COOKIE["dil"] = "en.php";
         require $_COOKIE["dil"];
-        header("http://localhost/letgo.php");
+        //header("http://localhost/letgo.php");
 
     }
 }
