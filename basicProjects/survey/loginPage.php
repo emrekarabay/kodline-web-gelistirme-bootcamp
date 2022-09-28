@@ -10,16 +10,17 @@
 <!-- Yetkisiz Girişi Önleme Başlangıç -->
 <?php
 require 'dbConnectPhp.php';
-if(isset($_SESSION["id"])){
+if(!isset($_SESSION["id"])){
     if(!isset($_COOKIE["dil"])){
         setcookie("dil",substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2) .'.php',time()+(86400*30));
         sleep(1);
-        header("Refresh:0; url=http://localhost/survey.php");
+        header("Refresh:0; url=http://localhost/loginPage.php");
+
     }
-    require $_COOKIE["dil"];
-}else{
-    goto end;
-} ?>
+}
+require $_COOKIE["dil"];
+
+?>
 <!-- Yetkisiz Girişi Önleme Bitiş -->
 <!-- Sayfa Dili Belirleme Başlangıç -->
 <?php if(isset($_GET["dil"])){
