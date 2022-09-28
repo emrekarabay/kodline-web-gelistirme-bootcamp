@@ -16,7 +16,6 @@ if(isset($_POST['username'],$_POST['password'])) {
             $usersListe = $sorguUsers2 -> fetch();
             $loginID = $usersListe["id"];
             $_SESSION["id"] = $loginID;
-            echo $_SESSION["id"];
             header('Location: ./survey.php');
         } else {
             $count++;
