@@ -1,0 +1,20 @@
+ul{
+    list-style: none;
+}
+
+li{
+    margin-left: 50px;
+}
+
+#enDisID .liler li{
+    color: white;
+    background-color: purple;
+    display: none;
+}
+
+#enDisID .liler:hover ul li{
+    background-color: yellow;
+    transition: 700ms;
+    color: black;
+    display: block;
+}
