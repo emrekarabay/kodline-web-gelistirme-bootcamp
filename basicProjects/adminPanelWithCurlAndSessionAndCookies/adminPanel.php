@@ -34,33 +34,33 @@
 <!-- HTML Admin Tablo Başlıklar Başlangıç -->
 <table class="table table-sm">
     <thead>
-        <tr>
-            <th scope="col"><?php echo $dil["id"] ?></th>
-            <th scope="col"><?php echo $dil["username"] ?></th>
-            <th scope="col"><?php echo $dil["password"] ?></th>
-            <th scope="col"><?php echo $dil["AuthLevel"] ?></th>
-            <th scope="col"><?php echo $dil["discountRate"] ?></th>
-        </tr>
+    <tr>
+        <th scope="col"><?php echo $dil["id"] ?></th>
+        <th scope="col"><?php echo $dil["username"] ?></th>
+        <th scope="col"><?php echo $dil["password"] ?></th>
+        <th scope="col"><?php echo $dil["AuthLevel"] ?></th>
+        <th scope="col"><?php echo $dil["discountRate"] ?></th>
+    </tr>
     </thead>
     <!-- HTML Admin Tablo Başlıklar Bitiş -->
     <tbody class="table-group-divider">
     <!-- Admin Tablo Verileri Veritabanından Alma Başlangıç -->
     <?php
-$sorguUsers = $conn->query(" select * from kullanici ");
-$usersListele = $sorguUsers -> fetchall();
-foreach ($usersListele as $user) { ?>
-        <tr>
-            <form method="POST" action="updateAdminPanel.php">
-                <td><input type="hidden" name="id" value="<?php echo $user['id']?>"></td>
-                <td><input type="text" name="username" value="<?php echo $user['username']?>"></td>
-                <td><input type="text" name="password" value="<?php echo $user['password']?>"></td>
-                <td><input type="text" name="authLevel" value="<?php echo $user['authLevel']?>"></td>
-                <td><input type="text" name="discountRate" value="<?php echo $user['discountRate']?>"></td>
-                <td><input class="btn btn-primary" type="submit" value="Submit">
-            </form>
+    $sorguUsers = $conn->query(" select * from kullanici ");
+    $usersListele = $sorguUsers -> fetchall();
+    foreach ($usersListele as $user) { ?>
+    <tr>
+        <form method="POST" action="updateAdminPanel.php">
+            <td><input type="hidden" name="id" value="<?php echo $user['id']?>"></td>
+            <td><input type="text" name="username" value="<?php echo $user['username']?>"></td>
+            <td><input type="text" name="password" value="<?php echo $user['password']?>"></td>
+            <td><input type="text" name="authLevel" value="<?php echo $user['authLevel']?>"></td>
+            <td><input type="text" name="discountRate" value="<?php echo $user['discountRate']?>"></td>
+            <td><input class="btn btn-primary" type="submit" value="Submit">
+        </form>
 
-           <?php } ?>
-        </tr>
+        <?php } ?>
+    </tr>
     </tbody>
     <!-- Admin Tablo Verileri Veritabanından Alma Bitiş -->
 </table>

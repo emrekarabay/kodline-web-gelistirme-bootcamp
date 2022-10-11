@@ -1,0 +1,40 @@
+ul{
+    list-style: none;
+}
+ul li{
+    float:left;
+    margin-left: 10px;
+    display: inline-block;
+    width: 150px;
+    position: relative;
+}
+
+
+.enDisUl .ilkLi .ikinciUl {
+    color: white;
+    background-color: purple;
+    visibility: hidden;
+
+
+}
+
+.enDisUl .ilkLi:hover .ikinciUl{
+    background-color: yellow;
+    transition: 700ms;
+    color: black;
+    visibility: visible;
+    position: absolute;
+}
+
+.enDisUl .ilkLi #web .ucuncuUl li{
+    color: white;
+    background-color: purple;
+    visibility: hidden;
+}
+
+.enDisUl .ilkLi #web:hover .ucuncuUl li{
+    background-color: yellow;
+    transition: 700ms;
+    color: black;
+    visibility: visible;
+}
