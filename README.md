@@ -1,6 +1,6 @@
 # Kodline web geliştirme bootcamp
 
-29.08.2022 - 
+29.08.2022 - 20.10.2022
 
 ## Kullanılan programlar
 
