@@ -1,0 +1,72 @@
+/*.ul li::before{*/
+/*    content: " bu bir ön yazıdır ";*/
+/*}*/
+
+/*.ul li::after{*/
+/*    content: " bu bir son yazıdır ";*/
+/*}*/
+
+/*.classyeni::selection{*/
+/*    color: blue;*/
+/*}*/
+
+
+/**::selection {*/
+/*     color: aqua;!important*/
+/*     background-color: yellow;*/
+/* }*/
+body{
+    font-size: 16px;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+/*.icdiv{*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    background-color: aqua;*/
+/*    font-size: 500px;*/
+/*    margin: 2rem;*/
+/*    font-weight: bold;*/
+
+/*}*/
+/*.disdiv{*/
+/*    height: 150px;*/
+/*    border: 1px solid;*/
+/*    display: flex;*/
+
+/*}*/
+
+
+.disdiv{
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    position: relative;
+    text-align: center;
+
+}
+
+.solustdiv{
+    position: absolute;
+
+}
+.sagustdiv{
+    right:0;
+    position: absolute;
+}
+.solaltdiv{
+    bottom: 0;
+    position: absolute;
+}
+.sagaltdiv{
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+.ortadiv{
+    top: 49%;
+    left: 49%;
+    position: absolute;
+}
+
