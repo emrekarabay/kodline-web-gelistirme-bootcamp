@@ -1,0 +1,69 @@
+.disdiv{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    transition: 0.5s;
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    padding: 10px;
+    text-align: center;
+
+}
+
+
+input:checked  + .disdiv{
+    visibility: hidden;
+    transition: 0.5s;
+    opacity: 0;
+
+}
+
+#checkbox{
+    opacity: 0;
+    visibility: hidden;
+}
+.btnDiv{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.btn{
+    background: #dd3e54;
+    background: linear-gradient(to right,#dd3e54,#6be585);
+    border: 0;
+    border-radius: 50px;
+    padding: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 47%;
+    left: 47%;
+    color: black;
+    font-weight: bold;
+}
+.btn:hover{
+    background: #009fff;
+    background: linear-gradient(to right,#009fff,#ec2f4b);
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+}
+
+.btn2{
+    background: #dd3e54;
+    background: linear-gradient(to right,#dd3e54,#6be585);
+    border: 0;
+    margin-top: 20px;
+    margin-left: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+.input2{
+    margin-top: 5px;
+}
+
+
